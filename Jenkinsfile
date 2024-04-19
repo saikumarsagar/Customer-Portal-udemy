@@ -4,7 +4,7 @@ pipeline {
         stage("Checkout") {
             steps {
           
-              git 'https://github.com/saikumarsagar/Customer-Portal-udemy.git'
+              git 'https://github.com/saikumarsagar/Customers-API-udemy.git'
             }
         }
         stage("Build") {

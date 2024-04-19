@@ -27,6 +27,7 @@ pipeline {
                         }
                     }
                 }
+            }
                 stage('SCA') {
                     steps {
                         echo 'SCA'

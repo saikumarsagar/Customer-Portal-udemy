@@ -48,7 +48,7 @@ pipeline {
             }
         }
     }
-    post {
+ /*   post {
         always {
             script {
                 def junitReport = new File('reports/junit.xml')
@@ -59,5 +59,5 @@ pipeline {
                 }
             }
         }
-    } 
+    } */
 }

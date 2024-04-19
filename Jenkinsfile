@@ -1,5 +1,9 @@
 pipeline {
     agent any
+        environment {
+        NETLIFY_AUTH_TOKEN = credentials("netlify-personal-access-token")
+        NETLIFY_SITE_ID = '2ec587da-e684-4922-99a1-94e0db5ea3a8'
+    }
     stages {
         stage("Checkout") {
             steps {
@@ -43,7 +47,12 @@ pipeline {
         }
         stage("Deploy prod") {
             steps {
-                echo "Deploy prod"
+                    nodejs(nodeJSInstallationName: 'node-lts') {
+                    echo "Deploying site: ${NETLIFY_SITE_ID}"
+                    sh 'node_modules/.bin/netlify status'
+               //     sh 'node_modules/.bin/netlify deploy --dir=build --prod'
+
+                }
             }
         }
     }

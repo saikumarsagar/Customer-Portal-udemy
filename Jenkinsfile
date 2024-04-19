@@ -2,9 +2,9 @@ pipelin{
   agent any
   stages{
     stage("Checkout")
-    {
-       git 'https://github.com/saikumarsagar/Customer-Portal-udemy.git'
-    }
+            steps {
+                git 'https://github.com/saikumarsagar/Customers-API-udemy.git'
+            }
     stage("Build")
     {
        echo " test" 

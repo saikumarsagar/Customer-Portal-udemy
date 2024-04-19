@@ -16,6 +16,7 @@ pipeline {
                     //sh 'npm run build'     
             }
         }
+        }
         stage('Parallel Stage') {
             failFast true
             parallel {

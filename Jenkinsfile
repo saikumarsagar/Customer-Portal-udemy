@@ -22,7 +22,7 @@ pipeline {
             parallel {
                 stage('Test') {
                     steps {
-                        echo 'Test'
+                        sh 'npm test -- --reporters=jest-junit'
                     }
                 }
                 stage('SCA') {
@@ -42,6 +42,11 @@ pipeline {
             steps {
                 echo "Deploy prod"
             }
+        }
+    }
+       post {
+        always {
+            junit 'reports/junit.xml'
         }
     }
 }

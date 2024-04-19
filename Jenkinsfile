@@ -51,7 +51,8 @@ pipeline {
     post {
         always {
 
-                  if (fileExists('reports/junit.xml')) {
+                def junitReport = new File('reports/junit.xml')
+                if (junitReport.exists()) {
                     junit 'reports/junit.xml'
                 } else {
                     echo 'JUnit XML file not found.'

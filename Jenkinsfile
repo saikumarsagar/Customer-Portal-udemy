@@ -27,7 +27,7 @@ pipeline {
                         }
                     }
                 }
-            }
+            
                 stage('SCA') {
                     steps {
                         echo 'SCA'
@@ -51,6 +51,6 @@ pipeline {
         always {
             junit 'reports/junit.xml'
         }
-    
+       } 
 
 }

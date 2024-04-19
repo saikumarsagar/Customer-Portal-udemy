@@ -25,7 +25,9 @@ pipeline{
     {
        echo " test" 
     } 
-    
+
+  }
+}
 
 
 

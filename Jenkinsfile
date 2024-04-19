@@ -50,7 +50,12 @@ pipeline {
     }
     post {
         always {
-            junit 'reports/junit.xml'
+
+                  if (fileExists('reports/junit.xml')) {
+                    junit 'reports/junit.xml'
+                } else {
+                    echo 'JUnit XML file not found.'
+                }
         }
     } 
 }

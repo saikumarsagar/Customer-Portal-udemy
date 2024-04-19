@@ -4,7 +4,7 @@ pipeline {
         stage("Checkout") {
             steps {
           
-              git 'https://github.com/saikumarsagar/Customers-API-udemy.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/saikumarsagar/Customer-Portal-udemy.git']]])
             }
         }
         stage("Build") {

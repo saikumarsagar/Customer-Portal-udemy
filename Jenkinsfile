@@ -41,7 +41,7 @@ pipeline {
             steps {
                 nodejs(nodeJSInstallationName: 'node-lts') {
                     echo "Deploying site: ${NETLIFY_SITE_ID}"
-                    sh 'node_modules/.bin/netlify status'
+                //    sh 'node_modules/.bin/netlify status'
                     // Uncomment the line below if you want to deploy the site to production
                     // sh 'node_modules/.bin/netlify deploy --dir=build --prod'
                 }

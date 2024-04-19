@@ -9,7 +9,11 @@ pipeline {
         }
         stage("Build") {
             steps {
-                echo "Build stage"
+                nodejs(nodeJSInstallationName: 'node-lts') {
+                    sh 'node --version'
+                    sh 'npm --version'
+                    //sh 'npm install'
+                    //sh 'npm run build'     
             }
         }
         stage('Parallel Stage') {

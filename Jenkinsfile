@@ -1,33 +1,42 @@
-pipeline{
-  agent any
-  stages{
-    stage("Checkout")
+pipeline {
+    agent any
+    stages {
+        stage("Checkout") {
             steps {
-                git 'https://github.com/saikumarsagar/Customers-API-udemy.git'
+          
+              git 'https://github.com/saikumarsagar/Customer-Portal-udemy.git'
             }
-    stage("Build")
-    {
-       echo " test" 
+        }
+        stage("Build") {
+            steps {
+                echo "Build stage"
+            }
+        }
+        stage('Parallel Stage') {
+            failFast true
+            parallel {
+                stage('Test') {
+                    steps {
+                        echo 'Test'
+                    }
+                }
+                stage('SCA') {
+                    steps {
+                        echo 'SCA'
+                    }
+                }
+            }
+        }
+
+        stage("Deploy stage") {
+            steps {
+                echo "Deploy stage"
+            }
+        }
+        stage("Deploy prod") {
+            steps {
+                echo "Deploy prod"
+            }
+        }
     }
-    stage("Test")
-    {
-       echo " test" 
-    }    
-    stage("SCA")
-    {
-       echo " test" 
-    } 
-        stage("Deploy stage")
-    {
-       echo " test" 
-    } 
-        stage("Deploy prod")
-    {
-       echo " test" 
-    } 
-
-  }
 }
-
-
-

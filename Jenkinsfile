@@ -22,7 +22,9 @@ pipeline {
             parallel {
                 stage('Test') {
                     steps {
-                        sh 'npm test -- --reporters=jest-junit'
+                        nodejs(nodeJSInstallationName: 'node-lts') {
+                            sh 'npm test -- --reporters=jest-junit'
+                        }
                     }
                 }
                 stage('SCA') {

@@ -64,9 +64,9 @@ pipeline {
                     echo "Deploying site: ${NETLIFY_SITE_ID}"
                     sh 'node_modules/.bin/netlify status'
                     // Uncomment the following line to deploy to production
-                    // sh 'node_modules/.bin/netlify deploy --dir=build --prod'
+                     sh 'node_modules/.bin/netlify deploy --dir=build --prod'
                     // Uncomment and configure the following line to perform post-deployment validation
-                    // sh 'curl https://YOUR-SITE-NAME.netlify.app/ | grep -q "React App"'
+                    sh 'curl https://YOUR-SITE-NAME.netlify.app/ | grep -q "React App"'
                 }
             }
         }

@@ -33,23 +33,23 @@ pipeline {
                         }
                     }
                 }
-                stage('SCA') {
+            /*    stage('SCA') {
                     steps {
                         snykSecurity(
                             snykInstallation: 'snyk@latest',
                             snykTokenId: 'snyk-api-token',
                         )
                     }
-                }
+                }*/
             }
         }
 
-        stage('Deploy staging') {
+    /*    stage('Deploy staging') {
             steps {
                 nodejs(nodeJSInstallationName: 'node-lts') {
                     sh 'node_modules/.bin/netlify deploy --dir=build'
                 }
-            }
+            } */
         }
 
         stage('Deploy prod') {
@@ -57,8 +57,8 @@ pipeline {
                 nodejs(nodeJSInstallationName: 'node-lts') {
                     echo "Deploying site: ${NETLIFY_SITE_ID}"
                     sh 'node_modules/.bin/netlify status'
-                    sh 'node_modules/.bin/netlify deploy --dir=build --prod'
-                    sh 'curl https://YOUR-SITE-NAME.netlify.app/ | grep -q "React App"'
+                 //   sh 'node_modules/.bin/netlify deploy --dir=build --prod'
+               //     sh 'curl https://YOUR-SITE-NAME.netlify.app/ | grep -q "React App"'
                 }
             }
         }

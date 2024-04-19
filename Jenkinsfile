@@ -12,8 +12,8 @@ pipeline {
                 nodejs(nodeJSInstallationName: 'node-lts') {
                     sh 'node --version'
                     sh 'npm --version'
-                    //sh 'npm install'
-                    //sh 'npm run build'     
+                    sh 'npm install'
+                    sh 'npm run build'     
             }
         }
         }

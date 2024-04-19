@@ -48,7 +48,7 @@ pipeline {
         }
 
         // Uncomment and configure Deploy staging stage if needed
-        /*
+        
         stage('Deploy staging') {
             steps {
                 nodejs(nodeJSInstallationName: 'node-lts') {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-        */
+        
 
         stage('Deploy prod') {
             steps {
@@ -66,7 +66,7 @@ pipeline {
                     // Uncomment the following line to deploy to production
                      sh 'node_modules/.bin/netlify deploy --dir=build --prod'
                     // Uncomment and configure the following line to perform post-deployment validation
-                    sh 'curl https://YOUR-SITE-NAME.netlify.app/ | grep -q "React App"'
+                    sh 'curl https://resplendent-cassata-196de6.netlify.app/ | grep -q "React App"'
                 }
             }
         }
